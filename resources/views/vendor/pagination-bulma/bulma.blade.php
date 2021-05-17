@@ -1,10 +1,10 @@
 @if ($paginator->hasPages())
   <nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">
     @unless ($paginator->onFirstPage())
-      <a class="pagination-previous" href="{{ $paginator->previousPageUrl() }}">Previous</a>
+      <a class="pagination-previous" href="{{ $paginator->previousPageUrl() }}" style="text-decoration: none">Previous</a>
     @endunless
     @if ($paginator->hasMorePages())
-      <a class="pagination-next" href="{{ $paginator->nextPageUrl() }}">Next page</a>
+      <a class="pagination-next" href="{{ $paginator->nextPageUrl() }}" style="text-decoration: none">Next page</a>
     @endif
     <ul class="pagination-list">
       {{-- Pagination Elements --}}
