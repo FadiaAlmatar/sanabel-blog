@@ -74,6 +74,15 @@
           </a>
         </div>
         @endforeach
+        <div class="column is-12">
+          {{-- <div class="field is-grouped"> --}}
+          <div class="buttons is-centered">
+            <a href="{{ route('posts.index') }}" style="text-decoration: none">See All Posts</a>
+          </div>
+
+
+
+        {{-- </div> --}}
       </div>
     </div>
   </section>
