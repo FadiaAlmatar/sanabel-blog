@@ -1,4 +1,4 @@
-<x-layouts.app>
+<x-layouts.auth>
   <section class="section is-large">
     <div class="container">
       <div class="columns is-centered">
@@ -75,4 +75,4 @@
             </div>
           </div></div>
       </div></div></section>
-</x-layouts.app>
+</x-layouts.auth>

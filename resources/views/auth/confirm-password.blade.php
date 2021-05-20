@@ -1,8 +1,16 @@
-<x-layouts.app>
-  <div class="card">
+<x-layouts.auth>
+  {{-- <div class="card">
     <p class="title is-4">{{ $title }}</p>
     <div class="card-content">
-      <div class="content">
+      <div class="content"> --}}
+        <section class="section is-large">
+          <div class="container">
+            <div class="columns is-centered">
+              <div class="column is-4">
+                <div class="card" >
+                  <p class="title is-4 p-3">Confirm Password</p>
+                  <div class="card-content">
+                    <div class="content">
         <form method="POST" action="{{ route('login') }}">
           @csrf
 
@@ -57,7 +65,8 @@
               @endif
           </div>
       </form>
-      </div>
-    </div>
-  </div>
-</x-layouts.app>
+      {{-- </div> --}}
+    {{-- </div> --}}
+  {{-- </div> --}}
+              </div></div></div></section>
+            </x-layouts.auth>
