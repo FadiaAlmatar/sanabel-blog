@@ -3,11 +3,11 @@
     <div class="container">
       <div class="columns is-centered">
         <div class="column is-4">
-          <div class="card">
+          <div class="card" >
             <p class="title is-4 p-3">Login</p>
             <div class="card-content">
               <div class="content">
-                <form method="POST" action="{{ route('login') }}">
+                <form method="POST" action="{{ route('login') }}" >
                   @csrf
                   <div class="field">
                       <label class="label" for="email">{{ __('E-Mail Address') }}</label>
@@ -62,4 +62,4 @@
       </div>
     </div>
   </section>
-</x-guest-layout>
+</x-layouts.app>

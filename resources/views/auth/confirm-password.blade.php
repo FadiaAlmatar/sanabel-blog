@@ -60,4 +60,4 @@
       </div>
     </div>
   </div>
-</x-guest-layout>
+</x-layouts.app>

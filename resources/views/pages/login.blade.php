@@ -1,4 +1,4 @@
-<x-layouts.app>
+{{-- <x-layouts.app>
   <section class="section" id="create" >
     <div class="container" id="createpost">
   <div class="title is-2 ">Log in</div>
@@ -30,4 +30,4 @@
       </form>
     </div>
   </section>
-</x-layouts.app>
+</x-layouts.app> --}}
