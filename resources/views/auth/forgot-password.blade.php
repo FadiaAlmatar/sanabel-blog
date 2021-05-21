@@ -1,10 +1,11 @@
-<x-layouts.auth>
-  <x-auth-card>
-      <x-slot name="logo">
+<x-layouts.app>
+  {{-- <x-layouts.auth> --}}
+  {{-- <x-auth-card> --}}
+      {{-- <x-slot name="logo">
           <a href="/">
               <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
           </a>
-      </x-slot>
+      </x-slot> --}}
 
       <div class="mb-4 text-sm text-gray-600">
           {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
@@ -15,6 +16,14 @@
 
       <!-- Validation Errors -->
       <x-auth-validation-errors class="mb-4" :errors="$errors" />
+      <section class="section is-large">
+        <div class="container">
+          <div class="columns is-centered">
+            <div class="column is-4">
+              <div class="card" >
+                <p class="title is-4 p-3">Login</p>
+                <div class="card-content">
+                  <div class="content">
 
       <form method="POST" action="{{ route('password.email') }}">
           @csrf
@@ -32,5 +41,6 @@
               </x-button>
           </div>
       </form>
-  </x-auth-card>
-</x-layouts.auth>
+                  </div></div></div></div></div></div></section>
+  {{-- </x-auth-card> --}}
+</x-layouts.app>
