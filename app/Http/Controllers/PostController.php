@@ -17,6 +17,10 @@ class PostController extends Controller
 //    {
 //        $this->request = $request;
 //    }
+public function __construct()
+{
+    $this->middleware('auth')->except(['index', 'show']);
+}
 public function index()
     {
         $posts = Post::paginate(6);
@@ -42,22 +46,39 @@ public function index()
 
     public function store (Request $request) {
         $request->validate([
-            'title'             => 'required|min:4|max:255',
-            'featured_image'    => 'required',
-            'content'           => 'required|min:4',
-            'category_id'       => 'required|numeric|exists:categories,id',
-            'tags'              => 'array',
+            // 'title'             => 'required|min:4|max:255',
+            // 'featured_image'    => 'required',
+            // 'content'           => 'required|min:4',
+            // 'category_id'       => 'required|numeric|exists:categories,id',
+            // 'tags'              => 'array',
+
+            'title'                     => 'required|min:4|max:255',
+            'content'                   => 'required|min:4',
+            'category_id'               => 'required|numeric|exists:categories,id',
+            'tags'                      => 'array',
+            'featured_image_url'        => 'required_without:featured_image_upload|url|nullable',
+            'featured_image_upload'     => 'required_without:featured_image_url|file|image',
         ]);
 
-        // $post = new Post();
-        // $post->title = $request->title;
-        // $post->featured_image = $request->featured_image;
-        // $post->content = $request->content;
-        // $post->category_id = $request->category_id;
-        $post = Post::create($request->all());
-        $post->tags()->sync($request->tags);
+        // $post = Post::create($request->all());
+        // $post->tags()->sync($request->tags);
         // return redirect()->route('posts.show', $post);
         //return redirect("/posts/{$post->id}");
+        $post = new Post();
+        $post->title = $request->title;
+        $post->slug = $request->slug;
+        $post->featured_image = $request->featured_image;
+        if ($request->has('featured_image_upload')) {
+            $image = $request->featured_image_upload;
+            $path = $image->store('post-images', 'public');
+            $post->featured_image = $path;
+        } else {
+            $post->featured_image = $request->featured_image_url;
+        }
+        $post->content = $request->content;
+        $post->category_id = $request->category_id;
+        $post->save();
+        $post->tags()->sync($request->tags);
         return redirect()->route('posts.show', $post)->with('success', 'The post was created successfully');
 
     }
