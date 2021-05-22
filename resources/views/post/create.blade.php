@@ -30,9 +30,7 @@
             <input class="input @error('featured_image_url')is-danger @enderror" name="featured_image_url" type="text" value="{{ old('featured_image_url') }}" placeholder="http://hi.com/pic.jpg">
             {{-- <input class="input @error('featured_image')is-danger @enderror" name="featured_image" type="text" value="{{ old('featured_image') }}" placeholder="http://hi.com/pic.jpg"> --}}
           </div>
-          {{-- @error('featured_image')
-            <p class="help is-danger">{{ $message }}</p>
-          @enderror --}}
+
           @error('featured_image_url')
             <p class="help is-danger">{{ $message }}</p>
           @enderror
