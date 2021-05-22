@@ -25,9 +25,9 @@
     <nav class="tabs is-boxed is-fullwidth">
       <div class="container">
         <ul>
-          <li><a href="{{ route('posts.edit', $post) }}"style="text-decoration:none; color:#eb640a;"><b>Edit</b></a></li>
+         @auth <li><a href="{{ route('posts.edit', $post) }}"style="text-decoration:none; color:#eb640a;"><b>Edit</b></a></li>
           <li><a href="{{ route('posts.delete', $post->id) }}" style="text-decoration:none; color:#eb640a;"><b>Delete</b></a></li>
-          <li><a href="{{ route('posts.create') }}"style="text-decoration:none; color:#eb640a;"><b>Create New Post</b></a></li>
+          <li><a href="{{ route('posts.create') }}"style="text-decoration:none; color:#eb640a;"><b>Create New Post</b></a></li>@endauth
           <li><a href="{{ route('categories.show', $post->category) }}"style="text-decoration:none; color:#eb640a;"><b>Show related Posts</b></a></li>
         </ul>
       </div>

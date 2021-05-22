@@ -1,12 +1,4 @@
-<x-layouts.auth>
-  <section class="section is-large">
-    <div class="container">
-      <div class="columns is-centered">
-        <div class="column is-4">
-          <div class="card" >
-            <p class="title is-4 p-3">Register</p>
-            <div class="card-content">
-              <div class="content">
+<x-layouts.auth title="Register">
   <form method="POST" action="{{ route('register') }}">
       @csrf
 
@@ -71,8 +63,4 @@
           </a>
       </div>
   </form>
-              </div>
-            </div>
-          </div></div>
-      </div></div></section>
 </x-layouts.auth>

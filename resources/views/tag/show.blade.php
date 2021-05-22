@@ -43,9 +43,9 @@
       <nav class="tabs is-boxed is-fullwidth">
         <div class="container">
           <ul>
-             <li><a href="{{ route('tags.edit', $tag) }}"style="text-decoration:none; color:#eb640a;"><b>Edit</b></a></li>
+             @auth<li><a href="{{ route('tags.edit', $tag) }}"style="text-decoration:none; color:#eb640a;"><b>Edit</b></a></li>
             <li><a href="{{ route('tags.destroy', $tag->id) }}" style="text-decoration:none; color:#eb640a;"><b>Delete</b></a></li>
-            <li><a href="{{ route('tags.create') }}"style="text-decoration:none; color:#eb640a;"><b>Create New Tag</b></a></li>
+            <li><a href="{{ route('tags.create') }}"style="text-decoration:none; color:#eb640a;"><b>Create New Tag</b></a></li>@endauth
             <li><a href="{{ route('tags.index') }}"style="text-decoration:none; color:#eb640a;"><b>All Tags</b></a></li>
            </ul>
         </div>

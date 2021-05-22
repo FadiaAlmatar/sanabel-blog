@@ -25,9 +25,9 @@
       <nav class="tabs is-boxed is-fullwidth">
         <div class="container">
           <ul>
-            <li><a href="{{ route('categories.edit', $category) }}"style="text-decoration:none; color:#eb640a;"><b>Edit</b></a></li>
+           @auth <li><a href="{{ route('categories.edit', $category) }}"style="text-decoration:none; color:#eb640a;"><b>Edit</b></a></li>
             <li><a href="{{ route('categories.destroy', $category->id) }}" style="text-decoration:none; color:#eb640a;"><b>Delete</b></a></li>
-            <li><a href="{{ route('categories.create') }}"style="text-decoration:none; color:#eb640a;"><b>Create New Category</b></a></li>
+            <li><a href="{{ route('categories.create') }}"style="text-decoration:none; color:#eb640a;"><b>Create New Category</b></a></li>@endauth
             <li><a href="{{ route('categories.index') }}"style="text-decoration:none; color:#eb640a;"><b>All Categories</b></a></li>
           </ul>
         </div>

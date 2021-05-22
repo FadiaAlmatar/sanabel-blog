@@ -76,10 +76,22 @@
               Account
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              @guest
               <li><a class="dropdown-item" href="{{route('login')}}"style="color: #eb640a">Log in</a></li>
               <li><a class="dropdown-item" href="{{route('register')}}" style="color: #eb640a">Sign in</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="{{route('logout')}}" style="color: #eb640a">Sign out</a></li>
+              @endguest
+              @auth
+              {{-- <li><a class="dropdown-item" href="{{route('logout')}}" style="color: #eb640a">Log out</a></li> --}}
+
+              {{-- <div class="navbar-item">
+                Hi {{ Auth::user()->name }}!!
+              </div> --}}
+              <li><form action="{{ route('logout') }}" method="post">
+                @csrf
+                <input type="submit" class="button is-light" value="Logout">
+              </form></li>
+              @endauth
             </ul>
           </li>
 

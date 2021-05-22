@@ -25,9 +25,10 @@ Route::get('/posts/{id}/delete', [PostController::class, 'destroy'])->name('post
 Route::get('/categories/{id}/delete', [CategoryController::class, 'destroy'])->name('categories.destroy');
 Route::get('/tags/{id}/delete', [TagController::class, 'destroy'])->name('tags.destroy');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth'])->name('dashboard');
+Route::view('/dashboard', 'dashboard')->middleware('auth')->name('dashboard');
 
 require __DIR__.'/auth.php';
 
