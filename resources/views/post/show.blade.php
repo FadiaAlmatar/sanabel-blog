@@ -45,8 +45,14 @@
           <li><a href="{{route('tags.show',$tag)}}" style="text-decoration:none; color:blue"><b>#{{$tag->name}} &nbsp;</b></a></li>
         @endforeach
       </ul>
-      {{ $post->content }}
+      {{-- {{ $post->content }} --}}
+       <div class="content" id="content">
+      {!! $post->content !!}
     </div>
+    </div>
+    {{-- <div class="content" id="content">
+      {!! $post->content !!}
+    </div> --}}
   </div>
 </section>
 <section class="section">
