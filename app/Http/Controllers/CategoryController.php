@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Models\User;
+use App\Notifications\CategoryAdded;
+use Illuminate\Support\Facades\Notification;
 
 class CategoryController extends Controller
 {
@@ -48,6 +51,7 @@ class CategoryController extends Controller
          $category = Category::create($request->all());
         //  return redirect("/categories/index");
         // return view('category.show',['category'=> $category]);
+        Notification::send(User::all() , new CategoryAdded($category));
         return redirect()->route('categories.show', $category)->with('success', 'The category was created successfully');
 
     }
