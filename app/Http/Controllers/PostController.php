@@ -7,6 +7,9 @@ use App\Models\Post;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Symfony\Component\Console\Input\Input;
+use App\Models\User;
+use App\Notifications\PostPublished;
+use Illuminate\Support\Facades\Notification;
 // use Request;
 
 class PostController extends Controller
@@ -116,6 +119,7 @@ public function index()
         $post->category_id = $request->category_id;
         $post->save();
         $post->tags()->sync($request->tags);
+        Notification::send(User::all() , new PostPublished($post));
         return redirect()->route('posts.show', $post)->with('success', 'The post was updated successfully');
 
     }

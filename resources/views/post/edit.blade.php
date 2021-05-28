@@ -26,7 +26,8 @@
         <div class="field">
           <label class="label">Title</label>
           <div class="control">
-            <input class="input @error('title')is-danger @enderror is-normal" name="title" type="text" placeholder="Post Title" value="{{ old('title') }}">
+            {{-- <input class="input @error('title')is-danger @enderror is-normal" name="title" type="text" placeholder="Post Title" value="{{ old('title') }}"> --}}
+            <input class="input @error('title')is-danger @enderror" name="title" type="text" value="{{ old('title', $post->title) }}" placeholder="Post Title">
           </div>
           @error('title')
             <p class="help is-danger">{{ $message }}</p>
@@ -38,8 +39,8 @@
           <label class="label">Featured Image (URL)</label>
           <div class="control">
             {{-- <input class="input @error('featured_image')is-danger @enderror" name="featured_image" type="text" placeholder="http://hi.com/pic.jpg" value="{{ old('featured_image') }}"> --}}
-            <input class="input @error('featured_image_url')is-danger @enderror" name="featured_image_url" type="text" value="{{ old('featured_image_url') }}" placeholder="http://hi.com/pic.jpg">
-
+            <input class="input @error('featured_image_url')is-danger @enderror" name="featured_image_url" type="text" value="{{ old('featured_image_url',$post->featured_image_url) }}" placeholder="http://hi.com/pic.jpg">
+            {{-- <input class="input @error('featured_image')is-danger @enderror" name="featured_image" type="text" value="{{ old('featured_image', $post->featured_image) }}" placeholder="http://hi.com/pic.jpg"> --}}
           </div>
           @error('featured_image_url')
           <p class="help is-danger">{{ $message }}</p>
@@ -69,7 +70,7 @@
           <label class="label">Content</label>
           <div class="control">
             {{-- <textarea class="textarea @error('content')is-danger @enderror is-small" name="content" placeholder="Post Content">{{ old('content') }}</textarea> --}}
-            <div id="editor" class="textarea @error('content')is-danger @enderror" name="content" placeholder="Post Content">{{ old('content') }}</div>
+            <div id="editor" class="textarea @error('content')is-danger @enderror" name="content" placeholder="Post Content">{{ old('content', $post->content) }}</div>
             <input type="hidden" name="content" id="content">
 
           </div>
@@ -81,7 +82,8 @@
           <label class="label">Category</label>
           <div class="control" id="category">
             <div class="select @error('category_id')is-danger @enderror">
-              <select name="category_id" value="{{ old('category_id') }}">
+              {{-- <select name="category_id" value="{{ old('category_id') }}"> --}}
+                <select name="category_id" value="{{ old('category_id', $post->category_id) }}">
                 @foreach ($categories as $category)
                   <option value="{{ $category->id }}">{{ $category->name }}</option>
                 @endforeach
@@ -96,7 +98,7 @@
           <label class="label">Tags</label>
           <div class="control" id="tag">
             <div class="select is-multiple @error('tags')is-danger @enderror">
-              <select name="tags[]" value="{{ old('tags') }}" multiple>
+              <select name="tags[]"  multiple>
                 @foreach ($tags as $tag)
                   <option value="{{ $tag->id }}">{{ $tag->name }}</option>
                 @endforeach
