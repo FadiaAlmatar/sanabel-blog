@@ -5,6 +5,8 @@ use App\Http\Controllers\TagController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CategoryController;
+use App\Mail\Welcome;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
